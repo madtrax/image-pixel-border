@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<script src="jquery-1.10.1.min.js" type="text/javascript"></script>
+		<script src="img-pixel-border.js" type="text/javascript"></script>
+		
+		<script>			
+			$(document).on('ready', function() {
+				$('#targetImg').getPixelColor(function(color) {
+					$('body').css('background', color);
+				});
+			});
+
+		</script>
+		
+	</head>
+	<body>
+		<img src="YOU_IMG_SRC" id="targetImg" />
+	</body>
+</html>

@@ -13,7 +13,7 @@
 		var canvas 	= $('<canvas />');
 		var ctx2d	= canvas.get(0).getContext('2d');
 		
-		drawImage(img.get(0), canvas, ctx2d);
+		drawImage(img, canvas, ctx2d);
 	};
 	
 	var drawImage = function(img, canvas, ctx2d) {

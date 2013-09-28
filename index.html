@@ -38,7 +38,18 @@
 <div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#MY_IMAGE_ID'</span><span class="p">).</span><span class="nx">getPixelColor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'background'</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
 <span class="p">});</span>
-</pre></div>
+</pre>
+
+	<p>Live example</p>
+	<div style="padding:20px;">
+		<img src="img.jpg" id="targetImg0" />
+	</div>
+	<div>&nbsp;</div>
+	<div style="padding:20px;">
+		<img src="img1.jpg" id="targetImg1" />
+	</div>
+
+</div>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/madtrax">madtrax</a></p>
@@ -46,6 +57,13 @@
       </footer>
     </div>
     <script src="javascripts/scale.fix.js"></script>
-    
+    <script src="javascripts/jquery-1.10.1.min.js"></script>
+    <script src="javascripts/img-pixel-border.js"></script>
+    <script>
+    	$(document).on('ready', function() {
+    		$('#targetImg0').getPixelColor(function(color) { $('#targetImg0').closest('div').css('background', color); });
+    		$('#targetImg1').getPixelColor(function(color) { $('#targetImg1').closest('div').css('background', color); });
+    	});
+    </script>
   </body>
 </html>

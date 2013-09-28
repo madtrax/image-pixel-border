@@ -13,15 +13,23 @@
 		var canvas 	= $('<canvas />');
 		var ctx2d	= canvas.get(0).getContext('2d');
 		
-		img.on('load', function() {
-			var imgw = $(this).width();
-			var imgh = $(this).height();
-			
-			canvas.attr('width', imgw).attr('height', imgh);
-			ctx2d.drawImage(this, 0, 0, imgw, imgh);
-			
-			extractColor(ctx2d, imgw, imgh);
-		});						
+		if (img.get(0).complete) {
+			drawImage(img.get(0), canvas, ctx2d);			
+		} else {
+			$(img).on('load', function() {
+				drawImage(this, canvas, ctx2d);
+			});
+		}
+	};
+	
+	var drawImage = function(img, canvas, ctx2d) {
+		var imgw = $(img).width();
+		var imgh = $(img).height();
+		
+		canvas.attr('width', imgw).attr('height', imgh);
+		ctx2d.drawImage(img, 0, 0, imgw, imgh);
+		
+		extractColor(ctx2d, imgw, imgh);
 	};
 	
 	var extractColor = function(ctx2d, w, h) {

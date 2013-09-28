@@ -7,13 +7,13 @@
 			$(document).on('ready', function() {
 				$('#targetImg').getPixelColor(function(color) {
 					$('body').css('background', color);
-				});
+				}, 3, 3);
 			});
 
 		</script>
 		
 	</head>
 	<body>
-		<img src="img.jpg" id="targetImg" />
+		<img src="img1.jpg" id="targetImg" />
 	</body>
 </html>

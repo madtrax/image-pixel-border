@@ -30,8 +30,15 @@
         <h1>
 <a name="image-pixel-border" class="anchor" href="#image-pixel-border"><span class="octicon octicon-link"></span></a>image-pixel-border</h1>
 
-<p>Extract the main colour of an image's borders</p>
-
+<p>A very lightweight and simple jQuery plug-in to extract the main color of an image's border. Just pass a callback as first parameter of the <i>getPixelColor</i> which takes one parameter. The parameter send to your callback will be the hexadecimal color code.</p>
+<p>In few words:
+	<ol>
+		<li>Clone the image in a dynamically created <b>HTML canvas</b> element.
+		<li>Read the pixels of the TOP, BOTTOM, LEFT, RIGHT borders of the image
+		<li>Extract the most frequent color
+		<li>Return the extracted color to your callback
+	</ol>
+</p>
 <p>Example :</p>
 
 <div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#MY_IMAGE_ID'</span><span class="p">).</span><span class="nx">getPixelColor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>

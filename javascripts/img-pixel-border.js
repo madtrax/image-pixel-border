@@ -4,8 +4,10 @@
 	var arrC 	= [];
 	var color	= null;
 	var cb		= callback;
+	var padding	= 5;
 
-	self.getImageColor = function(img) {
+	self.getImageColor = function(img, padding) {
+		padding = padding;
 		loadImage(img);
 	};
 	
@@ -33,7 +35,6 @@
 	};
 	
 	var extractColor = function(ctx2d, w, h) {
-		var padding = 5;
 		
 		readCanvasBorder(ctx2d, [0, 0, w, padding]); // Top
 		readCanvasBorder(ctx2d, [0, h - padding, w, padding]); // Bottom
@@ -80,9 +81,9 @@
 	};
 }
 
-$.fn.getPixelColor = function(callback) { 
+$.fn.getPixelColor = function(callback, pading) { 
 	var ipb = new ImgPixelBorder(function(color) {
 		callback.call(document, color);
-	}).getImageColor(this);
+	}).getImageColor(this, padding);
 };
 

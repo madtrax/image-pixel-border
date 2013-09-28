@@ -4,11 +4,19 @@
 	var arrC 	= [];
 	var color	= null;
 	var cb		= callback;
-	var padding	= 5;
-
-	self.getImageColor = function(img, padding) {
-		padding = padding;
+	
+	var paddingh	= 3;
+	var paddingw	= 3;
+	
+	self.getImageColor = function(img, pw, ph) {
+	
+		if (pw != undefined)
+			paddingw = pw;
+		if (ph != undefined)
+			paddingh = ph;
+		
 		loadImage(img);
+		
 	};
 	
 	var loadImage = function(img) {
@@ -35,12 +43,12 @@
 	};
 	
 	var extractColor = function(ctx2d, w, h) {
+
+		readCanvasBorder(ctx2d, [0, 0, w, paddingh]); // Top
+		readCanvasBorder(ctx2d, [0, h - paddingh, w, paddingh]); // Bottom
 		
-		readCanvasBorder(ctx2d, [0, 0, w, padding]); // Top
-		readCanvasBorder(ctx2d, [0, h - padding, w, padding]); // Bottom
-		
-		readCanvasBorder(ctx2d, [w - padding, 0, padding, h]); // Right
-		readCanvasBorder(ctx2d, [0, 0, padding, h]); // Left
+		readCanvasBorder(ctx2d, [w - paddingw, 0, paddingw, h]); // Right
+		readCanvasBorder(ctx2d, [0, 0, paddingw, h]); // Left
 		
 		if (cb != undefined) {
 			var cArr = color.split(',');
@@ -81,9 +89,9 @@
 	};
 }
 
-$.fn.getPixelColor = function(callback, pading) { 
+$.fn.getPixelColor = function(callback, pw, ph) { 
 	var ipb = new ImgPixelBorder(function(color) {
 		callback.call(document, color);
-	}).getImageColor(this, padding);
+	}).getImageColor(this, pw, ph);
 };
 

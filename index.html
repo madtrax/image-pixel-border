@@ -39,12 +39,31 @@
 		<li>Return the extracted color to your callback
 	</ol>
 </p>
+
+<p>
+	Options:<br/>
+	<ul>
+		<li>You can specify the border's size used to calculate the color:
+		&nbsp;<i>getPixelBorder([callback], [padding-width], [padding-height]);</i><br/><br/>
+		&nbsp;[callback] (required): Function to receive the extracted color<br/>
+		&nbsp;<i>[padding-with]: LEFT and RIGHT border size (px) - default: 3</i><br/>
+		&nbsp;<i>[padding-height]:  TOP and BOTTOM border size (px) - default: 3</i><br/>
+	</ul>
+</p>
+
 <p>Example :</p>
 
-<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#MY_IMAGE_ID'</span><span class="p">).</span><span class="nx">getPixelColor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#img1'</span><span class="p">).</span><span class="nx">getPixelColor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">$</span><span class="p">(</span><span class="s1">'body'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'background'</span><span class="p">,</span> <span class="nx">color</span><span class="p">);</span>
 <span class="p">});</span>
 </pre>
+</div>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">$</span><span class="p">(</span><span class="s1">'#img1'</span><span class="p">).</span><span class="nx">getPixelColor</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">color</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">'.divClass'</span><span class="p">).</span><span class="nx">css</span><span class="p">(</span><span class="s1">'background'</span><span class="p">,</span> <span class="nx">color</span><span class="p">,  <span class="nx">5</span><span class="p">,  <span class="nx">3</span><span class="p">);</span>
+<span class="p">});</span>
+</pre>
+</div>
 
 	<p>Live example</p>
 	<div style="padding:20px;">
